@@ -11,7 +11,7 @@ class Posts extends Component {
 
     state = {
         posts:[],
-        cmt:'',
+        // cmt:'',
     }
 
     componentDidMount() {
@@ -63,9 +63,9 @@ class Posts extends Component {
     };
 
 
-    onChange = (e) => {
-        this.setState({cmt:e.target.value})
-    }
+    // onChange = (e) => {
+    //     this.setState({cmt:e.target.value})
+    // }
     
     onKeyPress = (e) => {
         //it triggers by pressing the enter key
@@ -85,7 +85,8 @@ class Posts extends Component {
                     comment,
                 }
                 this.props.addComment(newComment)
-                this.setState({cmt:''})
+                // this.setState({cmt:''})
+                e.target.value = ''
             }
         }
     }
@@ -141,9 +142,9 @@ class Posts extends Component {
                     class="comment" 
                     placeholder="Comment"
                     id={post._id}
-                    onChange={this.onChange}
+                    // onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    value={this.state.cmt}
+                    // value={this.state.cmt}
                 />
                 <span class="no-of-comments">{post.comments.length}</span>
                 <hr/>
@@ -151,7 +152,7 @@ class Posts extends Component {
                 {post.comments.map(comment => (
                     <div class="comment-by-others">
                     <img src={comment.user_img} class="comment-img" alt=""/>
-                    <span class="commentor">{this.props.user?(this.props.user._id === comment.user_id?'You':(<div>{comment.fname} {comment.lname}</div>)):''}</span><br/>
+                    <span class="commentor">{this.props.user?(this.props.user._id === comment.user_id?'You':(<span>{comment.fname} {comment.lname}</span>)):''}</span><br/>
                     <span class="actual-comment">   
                     {comment.comment}
                     </span>

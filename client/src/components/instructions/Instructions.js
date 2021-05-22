@@ -106,17 +106,17 @@ class Instructions extends Component {
                     <div class="col-md-6">
                         <h5>This website is designed and developed in ❤ with Jamia Millia Islamia by</h5>
 
-                        <table>
+                        <table  style={{width:'80%'}}>
                             <tr>
-                            <td><img src="images/user.png" class="logo" alt=""/></td>
-                            <td>
+                            <td><img src="images/user.png" class="logo" alt=""  style={{width:'80%'}}/></td>
+                            <td style={{width:'60%'}}>
                                 <h6>MD Rashid Hussain (FET-JMI)</h6>
                                 <p class="intro">Designer</p>
                             </td>
                             </tr>
                             <tr>
-                            <td><img src="images/Anonymous.jpg" class="logo" alt=""/></td>
-                            <td>
+                            <td><img src="images/Anonymous.jpg" class="logo" alt="" style={{width:'80%'}}/></td>
+                            <td style={{width:'60%'}}>
                                 <h6>SM Mohdin (FET-JMI)</h6>
                                 <p class="intro">Developer</p>
                             </td>
