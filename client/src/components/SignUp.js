@@ -52,8 +52,8 @@ class SignUp extends Component {
                 dob:this.state.dob,
                 semester:this.state.semester,
                 branch:this.state.branch,
-                profile_imgsrc:'/logo192.png',
-                backprofile_imgsrc:'/logo192.png',
+                profile_imgsrc:'./images/user.png',
+                backprofile_imgsrc:'./images/college.png',
                 address:'not given',
                 phoneno:'null'
             };

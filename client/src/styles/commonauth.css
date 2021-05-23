@@ -1,5 +1,5 @@
 .html{
-   background-color: rgb(144, 235, 140);
+   background-color: black;
    overflow-x: hidden;
 }
 .body{
@@ -32,7 +32,7 @@
 .html .desc{
    width: 90%;
    margin: 0 auto 0 auto;
-   color: rgb(9, 4, 77);
+   color: white;
    font-size: 18px;
    font-weight: bold;
 }

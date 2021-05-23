@@ -20,7 +20,8 @@ mongoose
 app.use('/api/signup',require('./routes/api/signup'));
 app.use('/api/login',require('./routes/api/login'));
 app.use('/api/fetchPosts',require('./routes/fetchPosts'));
-app.use('/api/addPost',require('./routes/addPost'));
+// app.use('/api/addPost',require('./routes/addPost'));
+app.use('/api/addFPost',require('./routes/addFPost'));
 app.use('/api/addComment',require('./routes/addComment'));
 app.use('/api/addLike',require('./routes/addLike'));
 // app.use()

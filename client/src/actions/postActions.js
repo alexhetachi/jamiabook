@@ -35,25 +35,43 @@ export const fetchPosts = () => dispatch => {
 };
 
 
-export const addPost = ( post ) => dispatch => {
-  if(post.get('myImage') === '') console.log('no image in front');
-  else {
+// export const addPost = ( post ) => dispatch => {
+//   if(post.get('myImage') === '') console.log('no image in front');
+//   else {
+//       axios({
+//           method: 'post',
+//           url: '/api/addPost',
+//           data: post,
+//           headers: {
+//           'Content-Type': 'multipart/form-data'
+//       }
+//       }).then(item =>
+//           dispatch({
+//           type: ADD_POST,
+//           payload: item.data
+//           })
+//       ).catch(err => {
+//           console.log(err)
+//       })
+//   }
+// }
+
+
+
+export const addFPost = ( post ) => dispatch => {
       axios({
           method: 'post',
-          url: '/api/addPost',
+          url: '/api/addFPost',
           data: post,
-          headers: {
-          'Content-Type': 'multipart/form-data'
-      }
-      }).then(item =>
-          dispatch({
+      }).then(item => {
+        dispatch({
           type: ADD_POST,
           payload: item.data
           })
+      }
       ).catch(err => {
           console.log(err)
       })
-  }
 }
 
 export const addComment = ( comment ) => dispatch => {

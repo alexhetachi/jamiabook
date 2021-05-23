@@ -132,7 +132,8 @@ class Posts extends Component {
                 <p class="post-text">
                     {post.discp}
                 </p>
-                <img src={`./uploads/${post.post_img}`} class="post-img" alt=""/>
+                {/* <img src={`./uploads/${post.post_img}`} class="post-img" alt=""/> */}
+                <img src={post.post_img} class="post-img" alt=""/>
                 <hr style={{marginTop:'0', backgroundColor:'black'}}/>
                 <button class="like" id={post._id} onClick={(e)=>{this.onClick(e,post)}}>❤</button>
                 <span class="no-of-likes">{post.likes.length}</span>

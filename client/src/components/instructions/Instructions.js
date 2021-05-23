@@ -44,7 +44,7 @@ class Instructions extends Component {
 
     render() {
         return (
-            <div class="inst">
+            <div class="inst" style={{backgroundColor: 'white'}}>
                 <div class="row myrow">
                     <div class="col-md-6">
                         <div class="first">

@@ -10,9 +10,11 @@ class Sidebar extends Component{
                 <div class="row" style={{marginTop: '50px'}}>
                 <div class="col-md-3 hidden-in-mob" style={{padding: '0'}}>
                     <div class="left-upper">
-                        <img src="Images/back0.png" class="wall" alt=""/>
+                        {/* <img src="images/college.png" class="wall" alt=""/> */}
+                        <img src={this.props.user?this.props.user.backprofile_imgsrc:''} class="wall" alt=""/>
                         <br/>
-                        <img src="Images/user.png" class="logo" alt=""/>
+                        {/* <img src="images/user.png" class="logo" alt=""/> */}
+                        <img src={this.props.user?this.props.user.profile_imgsrc:''} class="logo" alt=""/>
                         <br/>
                         <strong>{this.props.user?this.props.user.fname:''} {this.props.user?this.props.user.lname:''} <br/>({this.props.user?this.props.user.branch:''}, {this.props.user?this.props.user.semester:''})</strong>
                         <hr style={{marginTop: '10px', backgroundColor: 'white'}}/>

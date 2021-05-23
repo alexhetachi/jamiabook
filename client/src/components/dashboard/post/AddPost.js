@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addPost } from '../../../actions/postActions';
+import { addFPost } from '../../../actions/postActions';
+import firebase from '../../firebase/firebase'
 
 class AddPost extends Component {
 
     state={
         myImage:'',
         discp:'',
-        msg:null
+        msg:null,
+        loading:null,
     }
 
     onChange = (e) => {
@@ -24,31 +26,59 @@ class AddPost extends Component {
 //  async
     onSubmit = e => {
         e.preventDefault();
-        console.log('submitting')
-        const formData = new FormData();
+        // console.log('submitting')
+        // const formData = new FormData();
         
-        formData.append('user_id', this.props.user._id);
-        formData.append('fname', this.props.user.fname);
-        formData.append('lname', this.props.user.lname);
-        formData.append('user_img', this.props.user.profile_imgsrc);
-        formData.append('discp', this.state.discp);
-        formData.append('myImage', this.state.myImage);
-        // console.log(formData.get('user_img'))
+        // formData.append('user_id', this.props.user._id);
+        // formData.append('fname', this.props.user.fname);
+        // formData.append('lname', this.props.user.lname);
+        // formData.append('user_img', this.props.user.profile_imgsrc);
+        // formData.append('discp', this.state.discp);
+        // formData.append('myImage', this.state.myImage);
+
         if(!this.state.discp.trim() || !this.state.myImage){
             this.setState({msg:'Please enter all fields.'})
         }else{
-            this.setState({msg:null})
-            this.props.addPost(formData);
+
+            let bucketName = 'images';
+            let file = this.state.myImage;
+            let storageRef = firebase.storage().ref(`${bucketName}/${file.name}`)
+            let uploadTask = storageRef.put(file)
+            uploadTask.on('state_changed', (snapshot) => {
+              console.log("Image Upload Progress")
+              this.setState({loading:'Uploading...'})
+              },
+              (error) => {
+                  console.log(error);
+              },
+              () => {
+                uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+                console.log(downloadURL)
+                const post = {
+                    user_id: this.props.user._id,
+                    fname: this.props.user.fname,
+                    lname: this.props.user.lname,
+                    user_img: this.props.user.profile_imgsrc,
+                    discp: this.state.discp,
+                    myImageURL: downloadURL,
+                }
+                e.target.reset();
+                this.props.addFPost(post);
+                }).then(asd=>{
+                  console.log(asd)
+                })
+              }
+            )
         }
-        // this.setState({ discp:'' })
-        // this.setState({ myImage:'' })
     }
 
     componentDidUpdate(prevProps){
         if(prevProps.post != this.props.post){
             if(this.props.post){
+                this.setState({myImage:null})
                 this.setState({ discp:'' })
-                this.setState({ msg:null })
+                this.setState({ loading:null })
+                this.setState({ loading:null })
             }
         }
     }
@@ -58,8 +88,9 @@ class AddPost extends Component {
             <div>
                 <div class="create-post">
                 <center><p style={{color:'red'}}><b>{this.state.msg}</b></p></center>
+                <center><p style={{color:'green'}}><b>{this.state.loading}</b></p></center>
                 <form method='post' onSubmit={this.onSubmit}>
-                    <img src="Images/user.png" class="user-create-post" alt=""/>
+                    <img src="images/user.png" class="user-create-post" alt=""/>
                     <textarea 
                         name="create" 
                         id="textarea" 
@@ -76,6 +107,7 @@ class AddPost extends Component {
                         class="extreme-right"
                         name="myImage"
                         onChange={this.onChange}
+                        // value={this.state.myImage}
                         // ref={this.state.myImage}
                     />
                     {/* <label for="file-choose" class="svg-pos"/> */}
@@ -105,5 +137,5 @@ const mapStateToProps = state => ({
     post:state.post.item,
 });
 
-export default connect(mapStateToProps, { addPost })(AddPost);
+export default connect(mapStateToProps, { addFPost })(AddPost);
 // export default AddPost;
