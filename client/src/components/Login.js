@@ -50,17 +50,16 @@ class Login extends Component {
         <div className="html">
             <div className="body">
                 <div className="row myrow">
-                    <div className="col-md-6">
+                    <div className="col-md-6 center">
                         <img src="images/connect.png" alt="" className="logo"/>
                         
-                        <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rerum ex eius tenetur aliquam, facere itaque minima cum voluptate vero accusamus quia, nobis, vitae quasi at ad. Officiis, molestias odio.</p>
+                        <p className="desc">Welcome to the awesome world <br />inside <br />♥ JAMIA MILLIA ISLAMIA ♥</p>
                         {/* <canvas id="cnv"></canvas> */}
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 center">
                         <form method="post" class="right" onSubmit={this.onSubmit}>
                             <h1 class="heading">Log In</h1>
-                            <p>Connect with the awesome world inside Jamia</p>
                             {/* <br/> */}
                             <p id="err">{this.state.msg}</p>
                             <input name="email" type="text" class="frm" placeholder="Email Address" onChange={this.onChange}/>

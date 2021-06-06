@@ -75,17 +75,16 @@ class SignUp extends Component {
         <div class="html">
         <div class="body">
         <div class="row myrow">
-            <div class="col-md-6">
+            <div class="col-md-6 center">
                 <img src="./images/connect.png" alt="" class="logo"/>
                 
-                <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rerum ex eius tenetur aliquam, facere itaque minima cum voluptate vero accusamus quia, nobis, vitae quasi at ad. Officiis, molestias odio.</p>
+                <p class="desc">Welcome to the awesome world <br />inside <br />♥ JAMIA MILLIA ISLAMIA ♥</p>
                 {/* <canvas id="cnv"></canvas> */}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 center">
                 <form method="post" class="right" onSubmit={this.onSubmit}>
                     <h1 class="heading">Sign Up</h1>
-                    <p>Connect with the awesome world inside Jamia</p>
                     {/* <br/> */}
                     <p id="err">{this.state.msg}</p>
                     <input name="fname" type="text" class="fname" placeholder="First Name" onChange={this.onChange}/>
@@ -106,8 +105,8 @@ class SignUp extends Component {
                     </div>
                             
                     <br/>
+                    <label for="dob">DOB : </label>
                     <input type="date" id="dob" name="dob" onChange={this.onChange}/>
-                    <label for="dob">Date of Birth</label>
                     <br/>
                     <select name="branch" id="branch" class="branch" onChange={this.onChange}>
                     <option>--Branch--</option>
@@ -133,8 +132,6 @@ class SignUp extends Component {
 
                     </select>
                     <br/>
-
-                    
 
                     <button type="submit" class="signupbtn">Sign Up</button>
                     <br/>
