@@ -74,27 +74,27 @@ class Instructions extends Component {
                             <h2>Instructions regarding posts</h2>
                             <p>Your psots must comply with the following standards</p>
                             <ul>
-                            <li>Posts should not contain
-                                <ul>
-                                    <li>Pornography, nudity, racism, sexism, swearing, hate speech</li>
-                                    <li>Any personal (undisclosable) material</li>
-                                    <li>Memes, jokes or any other unproductive stuff. These to be discussed under the global chat section only</li>
-                                    <li>Religious content</li>
-                                    <li>any affiliate links</li>
-                                    <li>And basically anyting that may present our community or in general <strong>JAMIA MILLIA ISLAMIA</strong> (our university) in a bad light</li>
-                                </ul>
-                            </li>
-                            <br/>
-                            <li>Posts can have
-                                <ul>
-                                    <li>Useful and verified (by sender) links for courses, tutorials, resources</li>
-                                    <li>Personal suggestions, path, roadmap for anything asked/demanded by any member(s)</li>
-                                    <li>Motivational content</li>
-                                    <li>Self or others' stories of success/failure</li>
-                                    <li>Or anything that would be helpful to other people on the website</li>
-                                </ul>
-                            </li>
-                            <li><strong>Posts not complying with the given guidelines would be removed and further action may be taken against the sender</strong></li>
+                                <li>Posts should not contain
+                                    <ul>
+                                        <li>Pornography, nudity, racism, sexism, swearing, hate speech</li>
+                                        <li>Any personal (undisclosable) material</li>
+                                        <li>Memes, jokes or any other unproductive stuff. These to be discussed under the global chat section only</li>
+                                        <li>Religious content</li>
+                                        <li>any affiliate links</li>
+                                        <li>And basically anyting that may present our community or in general <strong>JAMIA MILLIA ISLAMIA</strong> (our university) in a bad light</li>
+                                    </ul>
+                                </li>
+                                <br/>
+                                <li>Posts can have
+                                    <ul>
+                                        <li>Useful and verified (by sender) links for courses, tutorials, resources</li>
+                                        <li>Personal suggestions, path, roadmap for anything asked/demanded by any member(s)</li>
+                                        <li>Motivational content</li>
+                                        <li>Self or others' stories of success/failure</li>
+                                        <li>Or anything that would be helpful to other people on the website</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Posts not complying with the given guidelines would be removed and further action may be taken against the sender</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -108,18 +108,18 @@ class Instructions extends Component {
 
                         <table  style={{width:'80%'}}>
                             <tr>
-                            <td><img src="images/user.png" class="logo" alt=""  style={{width:'80%'}}/></td>
-                            <td style={{width:'60%'}}>
-                                <h6>MD Rashid Hussain (FET-JMI)</h6>
-                                <p class="intro">Designer</p>
-                            </td>
+                                <td><img src="images/user.png" class="logo" alt=""  style={{width:'80%'}}/></td>
+                                <td style={{width:'60%'}}>
+                                    <h6>MD Rashid Hussain (FET-JMI)</h6>
+                                    <p class="intro">Designer</p>
+                                </td>
                             </tr>
                             <tr>
-                            <td><img src="images/Anonymous.jpg" class="logo" alt="" style={{width:'80%'}}/></td>
-                            <td style={{width:'60%'}}>
-                                <h6>SM Mohdin (FET-JMI)</h6>
-                                <p class="intro">Developer</p>
-                            </td>
+                                <td><img src="images/Anonymous.jpg" class="logo" alt="" style={{width:'80%'}}/></td>
+                                <td style={{width:'60%'}}>
+                                    <h6>SM Mohdin (FET-JMI)</h6>
+                                    <p class="intro">Developer</p>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -127,27 +127,15 @@ class Instructions extends Component {
                     <div class="col-md-6">
                         <form class="optional" onSubmit={this.onSubmit}>
                             <fieldset>
-                            <legend>Optional Fields</legend>
-                            <input
-                                type="text"
-                                placeholder="Adress"
-                                name="address"
-                                onChange={this.onTextChange}
-                                value={this.state.address}
-                            />
-                            <br/>
-                            <input 
-                                type="number" 
-                                placeholder="Phone Number"
-                                name="phoneno"
-                                onChange={this.onTextChange}
-                                value={this.state.phoneno}
-                            />
-                            <br/>
-                            <div class="upload">
-                                <label for="file">Please Uplaod a profile picture</label>
-                                <input type="file" id="file" name="file" accept="image/png, image/jpg, image/jpeg"/>
-                            </div>
+                                <legend>Optional Fields</legend>
+                                <input type="text" placeholder="Adress" name="address" onChange={this.onTextChange} value={this.state.address} />
+                                <br/>
+                                <input  type="number"  placeholder="Phone Number" name="phoneno" onChange={this.onTextChange} value={this.state.phoneno} />
+                                <br/>
+                                <div class="upload">
+                                    <label for="file">Please Uplaod a profile picture</label>
+                                    <input type="file" id="file" name="file" accept="image/png, image/jpg, image/jpeg"/>
+                                </div>
                             </fieldset>
                             <br/>
                             <input type="checkbox" name="confirm" id="confirm"/>

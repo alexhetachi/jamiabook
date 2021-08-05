@@ -1,16 +1,19 @@
+import React, { useRef, useEffect } from 'react'
+// import ReactDOM from 'react-dom'
+// import Konva from 'react-Konva'
 
 let c, ctx, W, H;
 let dots = [];
 
-const random = (max=1, min=0) => Math.random() * (max - min) + min;
+const random = (max = 1, min = 0) => Math.random() * (max - min) + min;
 
 class Dot {
-   constructor(a){    
+   constructor(a) {
       this.x = random(W)
       this.y = random(H)
       this.r = 1.5
-      this.s = { x:random(1,-1),y:random(1,-1)}
-      this.dir = {x:1,y:1}
+      this.s = { x: random(1, -1), y: random(1, -1) }
+      this.dir = { x: 1, y: 1 }
    }
    draw() {
       ctx.beginPath()
@@ -19,37 +22,39 @@ class Dot {
       ctx.fill()
    }
    update() {
-      if(this.x>W-this.r||this.x<this.r)this.dir.x*=-1
-      if(this.y>H-this.r||this.y<this.r)this.dir.y*=-1
-      this.x += this.s.x*this.dir.x
-      this.y += this.s.y*this.dir.y
+      if (this.x > W - this.r || this.x < this.r) this.dir.x *= -1
+      if (this.y > H - this.r || this.y < this.r) this.dir.y *= -1
+      this.x += this.s.x * this.dir.x
+      this.y += this.s.y * this.dir.y
       this.draw()
    }
 }
 
-const updateDots = ()=> {
-   for(let i=0; i<dots.length; i++){    
-      dots[i].update();    
-      for(let j=i; j<dots.length; j++){    
-            let d = Math.hypot(dots[i].x - dots[j].x,dots[i].y - dots[j].y)
-            if(d<60&&i!==j){
-               ctx.beginPath()
-               ctx.strokeStyle = 'rgba(0,255,200,' + 20/d + ')'
-               ctx.lineWidth =  1 
-               ctx.moveTo(dots[i].x, dots[i].y);
-               ctx.lineTo(dots[j].x, dots[j].y);
-               ctx.stroke();
-            }      
-      }  
+const updateDots = () => {
+   for (let i = 0; i < dots.length; i++) {
+      dots[i].update();
+      for (let j = i; j < dots.length; j++) {
+         let d = Math.hypot(dots[i].x - dots[j].x, dots[i].y - dots[j].y)
+         if (d < 60 && i !== j) {
+            ctx.beginPath()
+            ctx.strokeStyle = 'rgba(0,255,200,' + 20 / d + ')'
+            ctx.lineWidth = 1
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.stroke();
+         }
+      }
    }
 }
 
 const init = () => {
-   c = document.getElementById("cnv");
-   c.width = W = window.innerWidth;
-   c.height = H = window.innerHeight;
-   ctx = c.getContext("2d");
-   for(let i=0;i<200;i++) dots.push(new Dot())
+   // c = document.getElementById("cnv");
+
+   // c.width = W = window.innerWidth;
+   // c.height = H = window.innerHeight;
+   // Canvas();
+   // ctx = c.getContext("2d");
+   for (let i = 0; i < 100; i++) dots.push(new Dot())
    animate();
 };
 
@@ -59,4 +64,23 @@ const animate = () => {
    requestAnimationFrame(animate);
 };
 
-onload = init;
+
+const Canvas = props => {
+   const canvasRef = useRef(null)
+   useEffect(() => {
+      c = canvasRef.current
+      c.width = W = window.innerWidth;
+      c.height = H = window.innerHeight;
+      ctx = c.getContext('2d')
+      for (let i = 0; i < 200; i++) dots.push(new Dot())
+      animate();
+   })
+   return <canvas ref={canvasRef} {...props} />
+}
+
+
+
+
+
+// onload = init;
+export default Canvas;
